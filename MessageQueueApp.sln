@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueueApp.Common", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueueApp.Messaging", "MessageQueueApp.Messaging\MessageQueueApp.Messaging.csproj", "{8AD8CC48-2E9C-4E1E-9FD9-47215860B3A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueueApp.Tests", "MessageQueueApp.Tests\MessageQueueApp.Tests.csproj", "{1413EE44-B874-42D3-873F-713AF65200DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{8AD8CC48-2E9C-4E1E-9FD9-47215860B3A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AD8CC48-2E9C-4E1E-9FD9-47215860B3A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AD8CC48-2E9C-4E1E-9FD9-47215860B3A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1413EE44-B874-42D3-873F-713AF65200DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1413EE44-B874-42D3-873F-713AF65200DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1413EE44-B874-42D3-873F-713AF65200DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1413EE44-B874-42D3-873F-713AF65200DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
