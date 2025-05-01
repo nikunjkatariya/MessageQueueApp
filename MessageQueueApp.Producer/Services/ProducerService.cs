@@ -41,8 +41,8 @@ public class ProducerService : IProducerService
                 continue;
             }
 
-            Console.WriteLine($"Enter number of messages to fail (less than or equal to {messageCount} & Max {_config.MaxFailedMessages}):");
-            if (!int.TryParse(Console.ReadLine(), out int failedCount) || failedCount <  0 || failedCount > _config.MaxFailedMessages || failedCount > messageCount)
+            Console.WriteLine($"Enter number of messages to fail (0 to {messageCount} & Max {_config.MaxFailedMessages}):");
+            if (!int.TryParse(Console.ReadLine(), out int failedCount) || failedCount <  0 || failedCount > _config.MaxFailedMessages || failedCount >= messageCount)
             {
                 Console.WriteLine("Invalid input for failed message count.");
                 continue;

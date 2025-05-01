@@ -23,6 +23,7 @@ class Program
                     services.Configure<ProducerConfig>(context.Configuration);
 
                     var queuePath = context.Configuration["QueuePath"] ?? string.Empty;
+                    var deadLetterQueuePath = context.Configuration["DeadLetterQueuePath"] ?? string.Empty;
 
                     // Bind ProducerConfig instance
                     var producerConfig = new ProducerConfig();
@@ -30,7 +31,7 @@ class Program
                     services.AddSingleton(producerConfig);
 
                     services.AddSingleton<IMessageQueueClient>(sp =>
-                        new MsmqClient(queuePath, null, sp.GetRequiredService<ILogger>()));
+                        new MsmqClient(queuePath, deadLetterQueuePath, sp.GetRequiredService<ILogger>()));
 
                     services.AddTransient<IProducerService, ProducerService>();
                 })

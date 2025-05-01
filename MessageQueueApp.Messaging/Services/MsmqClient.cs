@@ -101,7 +101,10 @@ namespace MessageQueueApp.Messaging.Services
             }
             catch (MessageQueueException mqe)
             {
-                _logger.Log($"Error receiving message: {mqe.Message}", LogLevel.Error);
+                if (mqe?.Message != null && mqe.Message.IndexOf("timeout", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    _logger.Log($"Timeout while receiving message: {mqe.Message}", LogLevel.Warning);
+                }
             }
             catch (Exception ex)
             {
@@ -141,14 +144,9 @@ namespace MessageQueueApp.Messaging.Services
             }
             catch (MessageQueueException mqe)
             {
-                if (mqe.Message.IndexOf("timeout", StringComparison.OrdinalIgnoreCase) >= 0)
+                if (mqe?.Message != null && mqe.Message.IndexOf("timeout", StringComparison.OrdinalIgnoreCase) >= 0)
                 {
-                    // No more messages in queue - expected exit condition
                     _logger.Log("Dead letter queue is now empty.", LogLevel.Info);
-                }
-                else
-                {
-                    _logger.Log($"Error clearing dead letter queue: {mqe?.Message}", LogLevel.Error);
                 }
             }
             catch (Exception ex)
