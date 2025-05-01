@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueueApp.Producer", "MessageQueueApp.Producer\MessageQueueApp.Producer.csproj", "{F8A6A6B4-D279-4D13-AC62-AE7C642D6A4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueueApp.Consumer", "MessageQueueApp.Consumer\MessageQueueApp.Consumer.csproj", "{4158A3D9-D78E-4AC0-A13A-4BB463E942EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueueApp.Logging", "MessageQueueApp.Logging\MessageQueueApp.Logging.csproj", "{F7B769F6-0D88-484C-9576-C98C2EE16B40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueueApp.Common", "MessageQueueApp.Common\MessageQueueApp.Common.csproj", "{46D849F8-0401-43B4-BBCB-B76517A436C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageQueueApp.Messaging", "MessageQueueApp.Messaging\MessageQueueApp.Messaging.csproj", "{8AD8CC48-2E9C-4E1E-9FD9-47215860B3A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8A6A6B4-D279-4D13-AC62-AE7C642D6A4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8A6A6B4-D279-4D13-AC62-AE7C642D6A4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8A6A6B4-D279-4D13-AC62-AE7C642D6A4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8A6A6B4-D279-4D13-AC62-AE7C642D6A4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4158A3D9-D78E-4AC0-A13A-4BB463E942EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4158A3D9-D78E-4AC0-A13A-4BB463E942EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4158A3D9-D78E-4AC0-A13A-4BB463E942EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4158A3D9-D78E-4AC0-A13A-4BB463E942EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7B769F6-0D88-484C-9576-C98C2EE16B40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7B769F6-0D88-484C-9576-C98C2EE16B40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7B769F6-0D88-484C-9576-C98C2EE16B40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7B769F6-0D88-484C-9576-C98C2EE16B40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46D849F8-0401-43B4-BBCB-B76517A436C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46D849F8-0401-43B4-BBCB-B76517A436C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46D849F8-0401-43B4-BBCB-B76517A436C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46D849F8-0401-43B4-BBCB-B76517A436C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AD8CC48-2E9C-4E1E-9FD9-47215860B3A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AD8CC48-2E9C-4E1E-9FD9-47215860B3A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AD8CC48-2E9C-4E1E-9FD9-47215860B3A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AD8CC48-2E9C-4E1E-9FD9-47215860B3A8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {16E9938D-87C9-4A4B-A597-73BA8C19D62D}
+	EndGlobalSection
+EndGlobal
