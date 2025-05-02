@@ -109,5 +109,78 @@ namespace MessageQueueApp.Consumer.Services
 
             return true;
         }
+
+        #region For Unit Testing
+        /// <summary>
+        /// Processes one receive/process cycle – easier for testing.
+        /// </summary>
+        public async Task RunSingleIterationAsync()
+        {
+            var message = await _queueClient.ReceiveMessageAsync();
+
+            if (message == null)
+            {
+                _logger.Log("No messages to process.", LogLevel.Info);
+
+                _deadLetterCount = _queueClient.GetDeadLetterMessageCount();
+                if (_deadLetterCount >= _config.DeadLetterWarningThreshold)
+                {
+                    _logger.Log($"Warning: Dead Letter queue has reached {_deadLetterCount} messages.", LogLevel.Warning);
+                }
+                _logger.Log($"Info: Total Successfully processed Messages: {_successMsgCount}", LogLevel.Warning);
+
+                await Task.Delay(_config.CheckIntervalSeconds * 1000);
+                return;
+            }
+
+            bool processed = false;
+            int retryCount = 0;
+            int maxRetries = _config.MaxRetryCount;
+
+            while (retryCount < maxRetries)
+            {
+                try
+                {
+                    processed = await ProcessMessageAsync(message);
+                    if (processed)
+                    {
+                        _successMsgCount++;
+                        _logger.Log($"Watchlist API Success for : {message}", LogLevel.Info);
+                        break;
+                    }
+                    else
+                    {
+                        retryCount++;
+                        _logger.Log($"Message processing failed, retrying... Attempt {retryCount}/{maxRetries}", LogLevel.Warning);
+                        await Task.Delay(1000);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    retryCount++;
+                    _logger.Log($"Error processing message: {ex.Message}. Attempt {retryCount}/{maxRetries}", LogLevel.Error);
+                    await Task.Delay(1000);
+                }
+            }
+
+            if (!processed && retryCount >= maxRetries)
+            {
+                _queueClient.MoveToDeadLetterQueue(message);
+                _logger.Log($"Message moved to dead-letter queue after {maxRetries} failed attempts: {message}", LogLevel.Error);
+            }
+        }
+
+        /// <summary>
+        /// Process message - made virtual for testing overrides.
+        /// </summary>
+        protected virtual async Task<bool> ProcessTestMessageAsync(AppointmentMessage message)
+        {
+            await Task.Delay(500);
+
+            if (message.ToString().Contains("fail"))
+                return false;
+            return true;
+        }
+        #endregion
     }
 }
